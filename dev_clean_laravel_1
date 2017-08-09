@@ -1,0 +1,14 @@
+FROM pivotaldata/ubuntu:16.04
+MAINTAINER doris fance26@gmail.com
+RUN apt-get update
+RUN apt-get upgrade -y
+RUN apt-get install -y curl wget ssh vim
+RUN apt-get install -y net-tools
+RUN apt-get install -y hhvm nginx git
+RUN apt-get install -y php7.0 php7.0-curl php7.0-mcrypt php7.0-imap php7.0-gd php7.0-json php7.0-opcache php-pear php7.0-mbstring php7.0-zip
+RUN apt-get install -y php7.0-fpm php7.0-common php7.0-xml php7.0-intl 
+RUN apt-get install -y composer
+RUN rm -rf /var/lib/apt/lists/* \
+    && localedef -i en_US -c -f UTF-8 -A /usr/share/locale/locale.alias en_US.UTF-8
+ENV LANG en_US.utf8
+
